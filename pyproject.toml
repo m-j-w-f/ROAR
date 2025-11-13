@@ -15,6 +15,7 @@ platforms = ["osx-arm64"]
 [tool.pixitasks]
 
 [tool.pixi.dependencies]
+pre-commit = ">=4.4.0,<5"
 
 [tool.pixi.pypi-dependencies]
 roar = { path = ".", editable = true }
