@@ -1,0 +1,10 @@
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+
+# MacOS system files
+.DS_Store
+
+# data files
+data/
+related_papers/
