@@ -1,0 +1,7 @@
+﻿messtyp,short_name,meas_name,min_kph,max_kph,acceleration
+v1 = 45 km/h  / 80 km/h,v1,mess0,45,80,
+v2 = 80 km/h  / 100 km/h,v2,mess1,80,100,
+v3 = 100 km/h / 120 km/h,v3,mess2,100,120,
+a1 = 1 m/s²,a1,mess3,,,1
+a2 = 2 m/s²,a2,mess4,,,2
+a3 = 3 m/s²,a3,mess5,,,3
