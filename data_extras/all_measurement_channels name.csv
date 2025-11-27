@@ -1,0 +1,137 @@
+description,channel_name,synonym_1,synonym_2,vehicle,relevance
+Fzg-CAN - Antrieb,Antrieb,,,ID.4,nein
+Fzg-CAN,BCM1_Aussen_Temp,,,alle,ja
+HEAD-CAN - labCTRL,CAN1_labCTRLI_,,,alle,nein
+HEAD-CAN - labDX,CAN1_labDX_B,,,alle,nein
+SIS - Trailing Edge - K1,Ch_1_labV12,TrailK1,,alle,ja
+SIS - Trailing Edge - K2,Ch_2_labV12,TrailK2,,alle,ja
+SIS - Leading Edge - K1,Ch_3_labV12,LeadK1,,alle,ja
+SIS - Leading Edge - K2,Ch_4_labV12,LeadK2,,alle,ja
+Stra�entemperatur,Ch_5_labV12,Temperatur,,alle,ja
+Luftfeuchte - Umgebung,Ch_7_labV12,,,alle,ja
+Lufttemperatur - Umgebung,Ch_8_labV12,,,alle,ja
+iMAR,Cnt_CAN_Sig_0_,,,alle,nein
+iMAR,Cnt_CAN_Sig_12_,,,alle,nein
+iMAR,Cnt_CAN_Sig_16_,,,alle,nein
+iMAR,Cnt_CAN_Sig_18_,,,alle,nein
+iMAR,Cnt_CAN_Sig_20_,,,alle,nein
+iMAR,Cnt_CAN_Sig_22_,,,alle,nein
+iMAR,Cnt_CAN_Sig_24_,,,alle,nein
+iMAR,Cnt_CAN_Sig_26_,,,alle,nein
+iMAR,Cnt_CAN_Sig_28_,,,alle,nein
+iMAR,Cnt_CAN_Sig_32_,,,alle,nein
+iMAR,Cnt_CAN_Sig_36_,,,alle,nein
+iMAR,Cnt_CAN_Sig_4_,,,alle,nein
+iMAR,Cnt_CAN_Sig_8_,,,alle,nein
+,EFP_Reibwert_dyn,,,Taycan,nein
+Fzg-CAN,EM1_IstMoment_C,,,ID.4,evtl
+Fzg-CAN,EM1_IstMoment_F,,,Q8,evtl
+Fzg-CAN,EM1_Raddrehzahl_,,,ID.4,evtl
+Fzg-CAN,EM2_IstMoment_F,,,Q8,evtl
+Fzg-CAN,EM3_IstMoment_F,,,Q8,evtl
+Fzg-CAN,EML_GierRate_Fl,,,Q8,evtl
+Fzg-CAN,EPS_Motormoment,,,Q8,evtl
+Fzg-CAN,ESC_Allrad_Antei,,,ID.4,evtl
+Fzg-CAN,ESP_Gierrate_CA,,,"eGolf, ID.4",evtl
+Fzg-CAN,ESP_HL_Bremsmome,,,"ID.4, Q8",evtl
+Fzg-CAN,ESP_HL_FR_CAN_S,,,Taycan,evtl
+Fzg-CAN,ESP_HL_Raddrehza,,,Q8,evtl
+Fzg-CAN,ESP_HL_Radgeschw,,,alle,ja
+Fzg-CAN,ESP_HR_Bremsmome,,,"ID.4, Q8",evtl
+Fzg-CAN,ESP_HR_FR_CAN_S,,,Taycan,evtl
+Fzg-CAN,ESP_HR_Raddrehza,,,Q8,evtl
+Fzg-CAN,ESP_HR_Radgeschw,,,alle,ja
+Fzg-CAN,ESP_Schwimmwinke,,,Q8,evtl
+Fzg-CAN,ESP_VL_Bremsmome,,,"ID.4, Q8",evtl
+Fzg-CAN,ESP_VL_FR_CAN_S,,,Taycan,evtl
+Fzg-CAN,ESP_VL_Raddrehza,,,Q8,evtl
+Fzg-CAN,ESP_VL_Radgeschw,,,alle,ja
+Fzg-CAN,ESP_VR_Bremsmome,,,"ID.4, Q8",evtl
+Fzg-CAN,ESP_VR_FR_CAN_S,,,Taycan,evtl
+Fzg-CAN,ESP_VR_Raddrehza,,,Q8,evtl
+Fzg-CAN,ESP_VR_Radgeschw,,,alle,ja
+Fzg-CAN,ESP_VZ_Gierrate,,,"eGolf, ID.4",evtl
+Fzg-CAN,ESP_Vorsteuerung,,,"eGolf, ID.4",nein
+Fzg-CAN,ESP_v_Signal_CA,,,"eGolf, ID.4",evtl
+Fzg-CAN,FA_Fahrbahnunebe,,,Taycan,evtl
+Fzg-CAN,FA_Hoehenwert_HL,,,"Q8, Taycan",ja
+Fzg-CAN,FA_Hoehenwert_HR,,,"Q8, Taycan",ja
+Fzg-CAN,FA_Hoehenwert_VL,,,"Q8, Taycan",ja
+Fzg-CAN,FA_Hoehenwert_VR,,,"Q8, Taycan",ja
+Fzg-CAN,FA_Hoehenwerte_k,,,Taycan,evtl
+Fzg-CAN,Fahrwerk,,,ID4,nein
+HEAD-CAN - labDX,Flex1_labDX_B,,,Q8,nein
+HEAD-CAN - labDX,GPS,,,alle,nein
+Fzg-CAN,HAL_EFP_FahrPr_,,,Taycan,evtl
+,HAL_Fahrerwunsch,,,Taycan,nein
+Fzg-CAN,HAL_Radwinkel_C,,,Taycan,evtl
+,HAL_Status_CAN_,,,Taycan,nein
+,HAL_VZ_Fahrerwun,,,Taycan,nein
+Fzg-CAN,HAL_VZ_Radwinkel,,,Taycan,evtl
+,HMS_Stillstand_,,,eGolf,nein
+Fzg-CAN,IMA,,,eGolf,nein
+Thermokamera - Endbild,IREnd,,,alle,ja
+Thermokamera - Startbild,IRStart,,,alle,ja
+Fzg-CAN,LWI_Lenkradwinke,,,ID.4,evtl
+iMAR,Lat_CAN_Sig_13_,Lat_CAN_Sig_25_,,alle,ja
+iMAR,Long_CAN_Sig_12,Long_CAN_Sig_23,,alle,ja
+Fzg-CAN,MO_Fahrpedalgrad,,,Taycan,evtl
+Fzg-CAN,MO_Fahrpedalrohw,,,Taycan,evtl
+,MO_Gangposition,,,"eGolf, ID.4",nein
+,MO_NGS_Gangpos_,,,Q8,nein
+,MO_QBit_Fahrpeda,,,Taycan,nein
+,MO_Sig_Fahrpedal,,,Taycan,nein
+,Mode_CAN_Sig_14,,,eGolf,nein
+,Mode_CAN_Sig_16,,,"eGolf, ID.4",nein
+,Mode_CAN_Sig_21,,,"eGolf, ID.4",nein
+NAWS,NAWSPressure,,,alle,ja
+NAWS,NAWSSound,,,alle,ja
+NAWS,NAWSTemperature,,,alle,ja
+Fzg-CAN - Au�entemperatur,OBD_Aussen_Temp_,,,"ID.4, Taycan",nein
+Fzg-CAN,OCU_Privacymode_,,,ID.4,nein
+Fzg-CAN,PSD_LR_Fahrzeug_,,,"eGolf, ID.4",nein
+Fzg-CAN,RDK_R_Temp_HL_C,,,Taycan,evtl
+Fzg-CAN,RDK_R_Temp_VL_C,,,Taycan,evtl
+Fzg-CAN,RDK_R_Temp_VR_C,,,Taycan,evtl
+Fzg-CAN,RS_Regenmenge_C,,,"ID.4, Q8",evtl
+iMAR,StdDev_Alt_CAN_,,,alle,evtl
+iMAR,StdDev_Lat_CAN_,,,alle,evtl
+iMAR,StdDev_Long_CAN,,,alle,evtl
+iMAR,StdDev_pitch_CA,,,alle,evtl
+iMAR,StdDev_roll_CAN,,,alle,evtl
+iMAR,StdDev_vEast_CA,,,alle,evtl
+iMAR,StdDev_vNorth_C,,,alle,evtl
+iMAR,StdDev_vUp_CAN_,,,alle,evtl
+iMAR,StdDev_yaw_CAN_,,,alle,evtl
+Fzg-CAN,TPMS_SensPFrLe_,,,Taycan,evtl
+Fzg-CAN,TPMS_SensPFrRi_,,,Taycan,evtl
+Fzg-CAN,TPMS_SensPReLe_,,,Taycan,evtl
+Fzg-CAN,TSK_Radbremsmom,,,eGolf,evtl
+Fzg-CAN,TSMomBegrenzung,,,ID.4,evtl
+Fzg-CAN,TS_Istmoment_CA,,,eGolf,evtl
+Fzg-CAN,TS_Status_MomRad,,,eGolf,evtl
+Fzg-CAN,TS_min_Generator,,,eGolf,evtl
+iMAR,aCnt_CAN_Sig_40,,,alle,nein
+iMAR,aInsSolState_CA,,,alle,nein
+iMAR,a_x_CAN_Sig_4_,a_x_CAN_Sig_6_,a_x_CAN_Sig_10_,alle,ja
+iMAR,a_y_CAN_Sig_3_,a_y_CAN_Sig_5_,a_y_CAN_Sig_9_,alle,ja
+iMAR,a_z_CAN_Sig_5_,a_z_CAN_Sig_7_,a_z_CAN_Sig_11_,alle,ja
+iMAR,bSats_CAN_Sig_2,bSats_CAN_Sig_4,,alle,evtl
+iMAR,bUTC_CAN_Sig_24,bUTC_CAN_Sig_41,,alle,ja
+iMAR,cGpsSolState_CA,,,alle,nein
+iMAR,cLeapSec_CAN_Si,,,alle,nein
+iMAR,dDiffAge_CAN_Si,,,alle,nein
+iMAR,dGpsPosType_CAN,,,alle,nein
+iMAR,dpitch_CAN_Sig_,,,alle,evtl
+iMAR,droll_CAN_Sig_1,droll_CAN_Sig_2,,alle,evtl
+iMAR,dyaw_CAN_Sig_2_,dyaw_CAN_Sig_3_,,alle,evtl
+iMAR,eSolAge_CAN_Sig,,,alle,nein
+Mikrofon - Fernfeld,mic_2m,,,,nein
+Mikrofon - Vorbeifahrtger�usch,mic_iso,,,alle,ja
+iMAR,pitch_CAN_Sig_7,pitch_CAN_Sig_1,,alle,evtl
+iMAR,roll_CAN_Sig_6_,roll_CAN_Sig_13,,alle,evtl
+iMAR,v_east_CAN_Sig_,,,alle,ja
+iMAR,v_north_CAN_Sig,,,alle,ja
+iMAR,v_up_CAN_Sig_11,v_up_CAN_Sig_21,,alle,ja
+iMAR,xAlt_CAN_Sig_14,xAlt_CAN_Sig_27,,alle,evtl
+iMAR,yaw_CAN_Sig_15_,yaw_CAN_Sig_8_,,alle,evtl

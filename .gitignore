@@ -6,7 +6,7 @@
 .DS_Store
 
 # data files
-data/
+data_cleaned/
 related_papers/
 
 # Byte-compiled / optimized / DLL files
