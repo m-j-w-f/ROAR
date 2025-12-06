@@ -2,6 +2,9 @@
 .pixi/*
 !.pixi/config.toml
 
+# presentation slides
+*.potx
+
 # MacOS system files
 .DS_Store
 
