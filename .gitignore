@@ -4,6 +4,7 @@
 
 # presentation slides
 *.potx
+*.pptx
 
 # MacOS system files
 .DS_Store
