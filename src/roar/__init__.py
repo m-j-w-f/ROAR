@@ -5,28 +5,31 @@ DATA_DIR = ROOT_DIR / "data_cleaned"
 EXTRAS_DIR = ROOT_DIR / "data_extras"
 
 ALL_VEHICLES = [
-    "01 VW ID4",
-    "02 Audi Q8",
-    "03 Porsche Taycan",
-    "04 VW eGolf",
+    "ID.4",
+    "Q8 e-tron",
+    "Taycan",
+    "E-Golf",
 ]
 
 VEHICLE_COLORS = {
-    "01 VW ID4": "#3498db",
-    "02 Audi Q8": "#e74c3c",
-    "03 Porsche Taycan": "#2ecc71",
-    "04 VW eGolf": "#9b59b6",
+    "ID.4": "#3498db",  # Blue
+    "Q8 e-tron": "#e74c3c",  # Red
+    "Taycan": "#2ecc71",  # Green
+    "E-Golf": "#9b59b6",  # Purple
 }
 
 VEHICLE_CLEAN_NAMES = {
-    "e-Golf": "04 VW eGolf",
-    "E-Golf": "04 VW eGolf",
-    "VW eGolf": "04 VW eGolf",
-    "ID4": "01 VW ID4",
-    "VW ID4": "01 VW ID4",
-    "Q8 e-tron": "02 Audi Q8",
-    "AudiQ8": "02 Audi Q8",
-    "Porsche": "03 Porsche Taycan",
+    "ID4": "ID.4",
+    "VW ID4": "ID.4",
+    "Q8 e-tron": "Q8 e-tron",
+    "Q8": "Q8 e-tron",
+    "AudiQ8": "Q8 e-tron",
+    "Porsche": "Taycan",
+    "Taycan": "Taycan",
+    "e-Golf": "E-Golf",
+    "eGolf": "E-Golf",
+    "E-Golf": "E-Golf",
+    "VW eGolf": "E-Golf",
 }
 
 ID_TO_VEHICLE = {i + 1: vehicle for i, vehicle in enumerate(ALL_VEHICLES)}
@@ -53,4 +56,12 @@ TYRE_CLEAN_NAMES = {
     "PremiumContact 6": "PremiumContact 6 AO",
     "Ventus S1 Evo 3": "Ventus S1 evo 3 ev",
     "P-Zero": "P-Zero R",
+}
+
+ALL_TRACKS = [150, 211, 259]
+
+TRACK_COLORS = {
+    150: "#4A90E2",
+    211: "#df4ed8",
+    259: "#F5A623",
 }
