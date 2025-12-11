@@ -65,3 +65,12 @@ TRACK_COLORS = {
     211: "#df4ed8",
     259: "#F5A623",
 }
+
+MIC_CHANNELS = [
+    "Ch_1_labV12",
+    "Ch_2_labV12",
+    "Ch_3_labV12",
+    "Ch_4_labV12",
+    "NAWSSound",
+    "mic_iso",
+]

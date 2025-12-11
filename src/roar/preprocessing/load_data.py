@@ -1,8 +1,10 @@
 import re
+from contextlib import contextmanager
 from datetime import datetime
 from pathlib import Path
 
 import h5py
+import numpy as np
 import polars as pl
 
 from roar import DATA_DIR, EXTRAS_DIR
@@ -91,7 +93,7 @@ def get_channel_mapping_dict(mapping_file: Path | None = None) -> dict:
     return syn_dict
 
 
-def load_h5_fix_channel_names(file_path: Path, mapping: dict) -> h5py.File:
+def load_h5_fix_channel_names(file_path: Path, mapping: dict, verbose=False) -> h5py.File:
     """Load a single h5 file and fix the channel names if necessary.
 
     Args:
@@ -102,5 +104,83 @@ def load_h5_fix_channel_names(file_path: Path, mapping: dict) -> h5py.File:
         h5py.File: Loaded h5 file with fixed channel names.
     """
     h5_file = h5py.File(file_path, "r+")
-    ...  # TODO
+
+    # Get all keys that need to be renamed
+    keys_to_rename = [key for key in h5_file.keys() if key in mapping]
+
+    # Rename datasets by copying to new name and deleting old
+    for old_name in keys_to_rename:
+        new_name = mapping[old_name]
+        # Copy the dataset with all its attributes
+        try:
+            h5_file.copy(old_name, new_name)
+            # Delete the old dataset
+            del h5_file[old_name]
+            if verbose:
+                print(f"Renamed dataset '{old_name}' to '{new_name}' in file '{file_path.name}'")
+        except Exception:
+            # Renaming already happened in a previous run
+            if verbose:
+                print(
+                    f"Dataset '{old_name}' could not be renamed to '{new_name}'. It may already exist."
+                )
+            pass
+
     return h5_file
+
+
+@contextmanager
+def h5_with_fixed_channels(
+    file_path: Path | str, mapping: dict | None = None, mode: str = "r", *args, **kwargs
+):
+    """Context manager to open an h5 file with fixed channel names.
+
+    Args:
+        file_path (Path): Path to the h5 file.
+        mapping (dict | None): Mapping of old channel names to new channel names.
+            If None, uses get_channel_mapping_dict(). Only applied if mode allows writing.
+        mode (str): File mode. Use "r+" or "a" to enable channel renaming. Defaults to "r".
+
+    Yields:
+        h5py.File: Loaded h5 file with fixed channel names (if mode allows).
+
+    Example:
+        >>> with h5_with_fixed_channels(file_path, mapping) as f:
+        ...     data = f["NAWSSound"][:]
+    """
+    if isinstance(file_path, str):
+        file_path = Path(file_path)
+
+    if mapping is None:
+        mapping = get_channel_mapping_dict()
+
+    # Only rename channels if mode allows writing
+    if mode in ("r+", "a"):
+        h5_file = load_h5_fix_channel_names(file_path, mapping, *args, **kwargs)
+    else:
+        h5_file = h5py.File(file_path, mode)
+
+    try:
+        yield h5_file
+    finally:
+        h5_file.close()
+
+
+def load_h5_channel(file_path: str, mapping: dict | None, channel_name: str):
+    """Load a specific channel from an H5 file."""
+    if mapping is None:
+        mapping = get_channel_mapping_dict()
+    with h5_with_fixed_channels(file_path, mapping, "r+") as f:
+        if channel_name in f:
+            data = f[channel_name][:]  # type: ignore
+            # Flatten if 2D with single row/column
+            if data.ndim == 2:  # type: ignore
+                if data.shape[0] == 1:  # type: ignore
+                    data = data.flatten()  # type: ignore
+                elif data.shape[1] == 1:  # type: ignore
+                    data = data.flatten()  # type: ignore
+            sample_rate = f[channel_name].attrs.get("sample_rate", None)
+            if isinstance(sample_rate, np.ndarray):
+                sample_rate = sample_rate.item()
+            return data, sample_rate
+    return None, None
