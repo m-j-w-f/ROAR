@@ -11,6 +11,8 @@
 
 # data files
 data_cleaned/
+data_images/
+tb_logs/
 related_papers/
 
 # Byte-compiled / optimized / DLL files

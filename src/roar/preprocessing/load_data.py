@@ -166,8 +166,10 @@ def h5_with_fixed_channels(
         h5_file.close()
 
 
-def load_h5_channel(file_path: str, mapping: dict | None, channel_name: str):
+def load_h5_channel(file_path: str | Path, mapping: dict | None, channel_name: str):
     """Load a specific channel from an H5 file."""
+    if isinstance(file_path, Path):
+        file_path = str(file_path)
     if mapping is None:
         mapping = get_channel_mapping_dict()
     with h5_with_fixed_channels(file_path, mapping, "r+") as f:
