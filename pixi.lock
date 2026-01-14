@@ -7811,7 +7811,7 @@ packages:
 - pypi: ./
   name: roar
   version: 0.1.0
-  sha256: 1ce5d55ef02015c08bcde040685b44fab2679f9fe144f8645122b3e01f0aa1ab
+  sha256: cee935b17469ed5b0e0ebb1e9c4b166b6225a1df1bcd89939bc0f3c607c29bd6
   requires_python: '>=3.13.0,<3.14'
 - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rpds-py-0.30.0-py313h2c089d5_0.conda
   sha256: db63344f91e8bfe77703c6764aa9eeafb44d165e286053214722814eabda0264

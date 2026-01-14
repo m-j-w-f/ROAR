@@ -2,13 +2,12 @@ import re
 from datetime import datetime
 from pathlib import Path
 from typing import Any
-from warnings import warn
 
 import h5py
 import numpy as np
 import polars as pl
 
-from roar import DATA_DIR
+from roar import DATA_DIR, MEASUREMENTS_CLEAN_NAMES
 
 
 def load_data_df(data_dir: Path = DATA_DIR) -> pl.DataFrame:
@@ -31,6 +30,7 @@ def load_data_df(data_dir: Path = DATA_DIR) -> pl.DataFrame:
     parsed = [parse_filename(f) for f in h5_files]
 
     df = pl.DataFrame(parsed)
+    df = df.with_columns(pl.col("measure").replace(MEASUREMENTS_CLEAN_NAMES).cast(pl.Categorical))
     return df
 
 
@@ -74,7 +74,7 @@ def parse_filename(filename: Path) -> dict[str, Any]:
     }
 
 
-def load_h5_channel(file_path: str | Path, channel_name: str) -> tuple[np.ndarray, int] | None:
+def load_h5_channel(file_path: str | Path, channel_name: str) -> tuple[np.ndarray, int]:
     """Load a specific channel from an H5 file.
 
     Args:
@@ -82,7 +82,7 @@ def load_h5_channel(file_path: str | Path, channel_name: str) -> tuple[np.ndarra
         channel_name (str): Name of the channel to load.
 
     Returns:
-        tuple[np.ndarray, int] | None: Tuple containing the data array and sample rate.
+        tuple[np.ndarray, int]: Tuple containing the data array and sample rate.
                                        Or None if channel not found.
     """
     if isinstance(file_path, Path):
@@ -90,8 +90,7 @@ def load_h5_channel(file_path: str | Path, channel_name: str) -> tuple[np.ndarra
 
     with h5py.File(file_path, "r") as f:
         if channel_name not in f:
-            warn(f"Channel '{channel_name}' not found in {file_path}.")
-            return None
+            raise KeyError(f"Channel '{channel_name}' not found in {file_path}.")
         data = np.array(f[channel_name])
         # Flatten if 2D with single row/column
         if data.ndim == 2:

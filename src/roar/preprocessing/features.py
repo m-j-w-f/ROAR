@@ -21,10 +21,10 @@ def extract_features_from_h5_file(file_path: Path | str, channels: list[str]) ->
     """
     all_feats = {}
     for channel_name in channels:
-        channel_data = load_h5_channel(file_path, channel_name)
-        if channel_data is None:
+        try:
+            sig, fs = load_h5_channel(file_path, channel_name)
+        except KeyError:
             continue
-        sig, fs = channel_data
 
         feats = extract_audio_features_from_signal(sig, fs)
         # Flatten features with prefix
