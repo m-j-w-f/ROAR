@@ -32,7 +32,8 @@ VEHICLE_CLEAN_NAMES = {
     "VW eGolf": "E-Golf",
 }
 
-ID_TO_VEHICLE = {i + 1: vehicle for i, vehicle in enumerate(ALL_VEHICLES)}
+ID_TO_VEHICLE = {i: vehicle for i, vehicle in enumerate(ALL_VEHICLES)}
+VEHICLE_TO_ID = {vehicle: i for i, vehicle in enumerate(ALL_VEHICLES)}
 
 ALL_TYRES = [
     "EcoContact 6 Q",
@@ -42,6 +43,16 @@ ALL_TYRES = [
     "Ventus S1 evo 3 ev",
     "Summer SRTT",
 ]
+
+TYRE_TO_ID = {
+    "EcoContact 6 Q": 1,
+    "RainSport 5": 3,
+    "PremiumContact 6 AO": 6,
+    "P-Zero R": 10,
+    "Ventus S1 evo 3 ev": 12,
+    "Summer SRTT": 13,
+}
+ID_TO_TYRE = {i: tyre for tyre, i in TYRE_TO_ID.items()}
 
 TYRE_COLORS = {
     1: "#e63946",
@@ -58,6 +69,7 @@ TYRE_CLEAN_NAMES = {
     "P-Zero": "P-Zero R",
 }
 
+# TODO: track 259 is actually also track 211 (?)
 ALL_TRACKS = [150, 211, 259]
 
 TRACK_COLORS = {
@@ -73,4 +85,5 @@ MIC_CHANNELS = [
     "Ch_4_labV12",
     "NAWSSound",
     "mic_iso",
+    "mic_2m",
 ]
