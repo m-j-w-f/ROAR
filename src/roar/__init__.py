@@ -78,6 +78,34 @@ TRACK_COLORS = {
     259: "#F5A623",
 }
 
+MEASUREMENTS = [f"meas{i}" for i in range(0, 7)]
+# A note on measurements:
+# meas0: 43-57.6 km/h
+# meas1: 40 km/h
+# meas2: 75 km/h but also some speeds at 45 km/h
+# meas3: 57 km/h - 100 km/h (mostly 100)
+# meas4: 45 km/h, accel 1 m/s2
+# meas5: 45 km/h, accel 2 m/s2
+# meas6: 45 km/h, accel 3-4 m/s2
+# vr45: constant 45 km/h
+# vr50: same as vr50_b35 (maybe file parsing issue)
+# vr80: constant 80 km/h
+# vr100: constant 100 km/h
+# vr50_b35: accel from 45 km/h to 55 km/h with 1 m/s2
+# vr50_b50: accel from 45 km/h to 60 km/h with 2 m/s2
+# vr50_b70: accel from 50 km/h to 60 km/h with 3-4 m/s2
+
+MEASUREMENTS_CLEAN_NAMES = {
+    "meas0": "meas1",
+    "vr45": "meas1",
+    "vr50": "meas1",
+    "vr80": "meas2",
+    "vr100": "meas3",
+    "vr50_b35": "meas4",
+    "vr50_b50": "meas5",
+    "vr50_b70": "meas6",
+}
+
 MIC_CHANNELS = [
     "Ch_1_labV12",
     "Ch_2_labV12",
