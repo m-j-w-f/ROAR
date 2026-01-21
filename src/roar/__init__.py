@@ -70,7 +70,7 @@ TYRE_CLEAN_NAMES = {
 }
 
 # TODO: track 259 is actually also track 211 (?)
-ALL_TRACKS = [150, 211, 259]
+ALL_TRACKS = [150, 211]
 
 TRACK_COLORS = {
     150: "#4A90E2",

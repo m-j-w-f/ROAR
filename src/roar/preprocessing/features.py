@@ -5,6 +5,8 @@ import numpy as np
 import scipy
 from scipy.signal import welch
 
+from roar import MIC_CHANNELS, MIC_CHANNELS_CLEANED
+
 from .load_data import load_h5_channel
 
 
@@ -24,12 +26,26 @@ def extract_features_from_h5_file(file_path: Path | str, channels: list[str]) ->
         try:
             sig, fs = load_h5_channel(file_path, channel_name)
         except KeyError:
-            continue
+            sig, fs = None, None
+            pass
+        if channel_name in MIC_CHANNELS or channel_name in MIC_CHANNELS_CLEANED:
+            if sig is not None and fs is not None:
+                feats = extract_audio_features_from_signal(sig, fs)
+        elif channel_name not in ["speed"]:
+            # For non-audio channels, we can add other feature extraction methods here
+            if sig is not None:
+                feats = extract_statistic_features_from_signal(sig)
+        else:
+            feats = {}
 
-        feats = extract_audio_features_from_signal(sig, fs)
         # Flatten features with prefix
-        for k, v in feats.items():
+        for k, v in feats.items():  # pyright: ignore[reportPossiblyUnboundVariable]
             all_feats[f"{channel_name}_{k}"] = v
+
+        if channel_name == "speed":
+            speed_accel_feats = get_speed_accel_features(Path(file_path))
+            all_feats.update(speed_accel_feats)
+
     return all_feats
 
 
@@ -132,6 +148,35 @@ def extract_audio_features_from_signal(
         feats[f"mfcc_{i}"] = float(coeff)
 
     return feats
+
+
+def extract_statistic_features_from_signal(signal: np.ndarray, *args, **kwargs) -> dict[str, float]:
+    """Placeholder for other feature extraction methods."""
+    return {
+        "mean": float(np.mean(signal)),
+        "std": float(np.std(signal)),
+        "max": float(np.max(signal)),
+        "min": float(np.min(signal)),
+        "median": float(np.median(signal)),
+    }
+
+
+def get_speed_accel_features(file_path: Path) -> dict[str, float]:
+    speed_east, _ = load_h5_channel(file_path=file_path, channel_name="v_east_CAN_Sig_")
+    speed_north, sample_rate = load_h5_channel(file_path=file_path, channel_name="v_north_CAN_Sig")
+
+    speed_ms = np.sqrt(speed_east**2 + speed_north**2).flatten()  # in m/s
+    dt = 1 / sample_rate  # in seconds
+    accel = np.gradient(speed_ms, dt)  # in m/s²
+
+    res = []
+    for arr in [speed_ms, accel]:
+        res.append(extract_statistic_features_from_signal(arr))
+    features = {}
+    for i, prefix in enumerate(["speed", "accel"]):
+        for k, v in res[i].items():
+            features[f"{prefix}_{k}"] = v
+    return features
 
 
 def compute_fft_spectrum(data: np.ndarray, sample_rate: float):
