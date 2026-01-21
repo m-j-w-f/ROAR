@@ -115,3 +115,27 @@ MIC_CHANNELS = [
     "mic_iso",
     "mic_2m",
 ]
+
+MIC_CHANNELS_CLEANED = [mic_channel + "_cleaned" for mic_channel in MIC_CHANNELS]
+
+__all__ = [
+    "ROOT_DIR",
+    "DATA_DIR",
+    "EXTRAS_DIR",
+    "ALL_VEHICLES",
+    "VEHICLE_COLORS",
+    "VEHICLE_CLEAN_NAMES",
+    "ID_TO_VEHICLE",
+    "VEHICLE_TO_ID",
+    "ALL_TYRES",
+    "TYRE_TO_ID",
+    "ID_TO_TYRE",
+    "TYRE_COLORS",
+    "TYRE_CLEAN_NAMES",
+    "ALL_TRACKS",
+    "TRACK_COLORS",
+    "MEASUREMENTS",
+    "MEASUREMENTS_CLEAN_NAMES",
+    "MIC_CHANNELS",
+    "MIC_CHANNELS_CLEANED",
+]
