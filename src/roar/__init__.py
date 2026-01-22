@@ -78,7 +78,7 @@ TRACK_COLORS = {
     259: "#F5A623",
 }
 
-MEASUREMENTS = [f"meas{i}" for i in range(0, 7)]
+MEASUREMENTS = [f"meas{i}" for i in range(1, 7)]
 # A note on measurements:
 # meas0: 43-57.6 km/h
 # meas1: 40 km/h

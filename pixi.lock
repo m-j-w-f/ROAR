@@ -348,7 +348,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/rfc3987-syntax-1.1.0-pyhe01879c_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rpds-py-0.30.0-py313h2c089d5_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/ruff-0.14.11-hb0cad00_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/scikit-learn-1.7.2-py313h6eea1c5_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/scikit-learn-1.6.1-py313hecba28c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/scipy-1.16.3-py313h0d10b07_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/sdl2-2.32.56-h248ca61_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/sdl3-3.2.26-h919df07_0.conda
@@ -375,6 +375,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/sympy-1.14.0-pyh2585a3b_105.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tabpfn-6.3.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tabpfn-common-utils-0.2.13-pyhcf101f3_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/tabpfn-extensions-0.2.2-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/tbb-2022.3.0-h66ce52b_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tensorboard-2.20.0-pyhe01879c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/tensorboard-data-server-0.7.0-py313hc7e6878_4.conda
@@ -685,7 +686,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/rfc3987-syntax-1.1.0-pyhe01879c_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/rpds-py-0.30.0-py313hfbe8231_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/ruff-0.14.11-h37e10c4_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/scikit-learn-1.7.2-py313he28f1d7_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/scikit-learn-1.6.1-py313h4f67946_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/scipy-1.16.3-py313h7aa983e_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/seaborn-0.13.2-hd8ed1ab_3.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/seaborn-base-0.13.2-pyhd8ed1ab_3.conda
@@ -707,6 +708,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/sympy-1.14.0-pyh04b8f61_5.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tabpfn-6.3.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tabpfn-common-utils-0.2.13-pyhcf101f3_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/tabpfn-extensions-0.2.2-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/tbb-2022.3.0-hd094cb3_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tensorboard-2.20.0-pyhe01879c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/tensorboard-data-server-0.7.0-py313hfa70ccb_4.conda
@@ -7811,7 +7813,7 @@ packages:
 - pypi: ./
   name: roar
   version: 0.1.0
-  sha256: cee935b17469ed5b0e0ebb1e9c4b166b6225a1df1bcd89939bc0f3c607c29bd6
+  sha256: 2bd77f5e04905a249cbc14c374506c80ff5cbb3f9a97c58ebe2b97b1c2717a1e
   requires_python: '>=3.13.0,<3.14'
 - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rpds-py-0.30.0-py313h2c089d5_0.conda
   sha256: db63344f91e8bfe77703c6764aa9eeafb44d165e286053214722814eabda0264
@@ -7872,47 +7874,45 @@ packages:
   - pkg:pypi/ruff?source=compressed-mapping
   size: 11870088
   timestamp: 1767948584867
-- conda: https://conda.anaconda.org/conda-forge/osx-arm64/scikit-learn-1.7.2-py313h6eea1c5_0.conda
-  sha256: b45fe1eda6f86355f92a1bd0169bcb8281b42904ceb3bc2e2f1a0a02fa788ce5
-  md5: 1349ee599f5f142efecd398da4ca7dac
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/scikit-learn-1.6.1-py313hecba28c_0.conda
+  sha256: bec0733a698ae2a2af43ddebf575dbe6188122faea6fb879f16664a71ce8bc3a
+  md5: 24a69ff370dbdbca38345e4f1338b9d2
   depends:
   - __osx >=11.0
   - joblib >=1.2.0
-  - libcxx >=19
-  - llvm-openmp >=19.1.7
-  - numpy >=1.22.0
-  - numpy >=1.23,<3
+  - libcxx >=18
+  - llvm-openmp >=18.1.8
+  - numpy >=1.21,<3
   - python >=3.13,<3.14.0a0
   - python >=3.13,<3.14.0a0 *_cp313
   - python_abi 3.13.* *_cp313
-  - scipy >=1.8.0
+  - scipy
   - threadpoolctl >=3.1.0
   license: BSD-3-Clause
   license_family: BSD
   purls:
   - pkg:pypi/scikit-learn?source=hash-mapping
-  size: 8955945
-  timestamp: 1757406945447
-- conda: https://conda.anaconda.org/conda-forge/win-64/scikit-learn-1.7.2-py313he28f1d7_0.conda
-  sha256: 20d75fd0cbd1c0019136900694a0d2347b5ea970cb160259ded59d10b6b62595
-  md5: 7fa033fe1d7585e9fdbc9b4a756f9e43
+  size: 9809132
+  timestamp: 1736497433367
+- conda: https://conda.anaconda.org/conda-forge/win-64/scikit-learn-1.6.1-py313h4f67946_0.conda
+  sha256: 5a14ab3f6ffceb7386c9faf4da416aa8ce05c54a2bd48bfde406e8ca0ee695cc
+  md5: 1976cee09f9cc559bf5f063616894b31
   depends:
   - joblib >=1.2.0
-  - numpy >=1.22.0
-  - numpy >=1.23,<3
+  - numpy >=1.21,<3
   - python >=3.13,<3.14.0a0
   - python_abi 3.13.* *_cp313
-  - scipy >=1.8.0
+  - scipy
   - threadpoolctl >=3.1.0
   - ucrt >=10.0.20348.0
-  - vc >=14.3,<15
-  - vc14_runtime >=14.44.35208
+  - vc >=14.2,<15
+  - vc14_runtime >=14.29.30139
   license: BSD-3-Clause
   license_family: BSD
   purls:
   - pkg:pypi/scikit-learn?source=hash-mapping
-  size: 8783733
-  timestamp: 1757406767302
+  size: 9502362
+  timestamp: 1736497388336
 - conda: https://conda.anaconda.org/conda-forge/osx-arm64/scipy-1.16.3-py313h0d10b07_1.conda
   sha256: 8d3a1018a7c6ab1e64904114a6b20fa72dd4ec384ea7c103e65f1c16a5518da2
   md5: 55c947938346fb644c2752383c40f935
@@ -8422,6 +8422,24 @@ packages:
   - pkg:pypi/tabpfn-common-utils?source=hash-mapping
   size: 41533
   timestamp: 1767114267036
+- conda: https://conda.anaconda.org/conda-forge/noarch/tabpfn-extensions-0.2.2-pyhcf101f3_0.conda
+  sha256: 666b7a4f448a6393638f7884d378e6e6dc5829a5581521345a48e96c066c1fd9
+  md5: cc0c03e334a19064f39f5e4a37a21222
+  depends:
+  - python >=3.10
+  - pandas >=1.4.0,<3
+  - pytorch >=2.1,<3
+  - scikit-learn >=1.6.0,<1.7
+  - scipy >=1.11.1,<2
+  - tabpfn >=6.0.5,<7
+  - tabpfn-common-utils >=0.2.0
+  - python
+  license: Apache-2.0
+  license_family: APACHE
+  purls:
+  - pkg:pypi/tabpfn-extensions?source=hash-mapping
+  size: 99012
+  timestamp: 1767025654637
 - conda: https://conda.anaconda.org/conda-forge/osx-arm64/tbb-2022.3.0-h66ce52b_1.conda
   sha256: 06de2fb5bdd4e51893d651165c3dc2679c4c84b056d962432f31cd9f2ccb1304
   md5: 6f026b94077bed22c27ad8365e024e18
