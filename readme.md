@@ -1,4 +1,4 @@
-# ROAR -- Road Audio Recognition
+# ROAR - Road Audio Recognition
 
 Classification of road surface types from tyre-road noise recordings of electric vehicles. Measurements were collected on two test tracks using four electric vehicles, six tyre models, and seven microphone channels per recording. The goal is to distinguish track 150 from track 211 based solely on audio features, using cross-validation schemes that test generalization across unseen vehicles and measurement conditions.
 
