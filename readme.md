@@ -210,18 +210,6 @@ Computes and compares SHAP-based feature importances for the four best tree-base
 
 All models use Leave-One-Group-Out cross-validation where each fold holds out either one vehicle or one measurement type. This tests whether the classifier generalizes to conditions it has never seen during training.
 
-| Model                  | Description                                                      |
-|------------------------|------------------------------------------------------------------|
-| PCA + Logistic Reg.    | PCA dimensionality reduction followed by logistic regression     |
-| Random Forest          | 300-tree ensemble with threshold tuning                          |
-| SVM                    | Support vector machine with RBF or polynomial kernel             |
-| XGBoost                | 400-tree gradient boosting with extensive hyperparameter search  |
-| LightGBM               | 400-tree gradient boosting (leaf-wise)                           |
-| TabPFN                 | Prior-fitted network for small tabular datasets                  |
-| TabPFN + RF/XGB/LGBM   | TabPFN transductive embeddings as input to tree models           |
-| TabPFN + PCA_LR/SVC    | TabPFN embeddings as input to linear/kernel models               |
-| Conv. Autoencoder      | Latent features from MFCC spectrograms with classification head  |
-
 ## Results
 
 Model evaluation results are stored as CSV files in `results/`. Generated figures (confusion matrices, comparison bar charts, SHAP plots) are saved as PDFs in `plots/`.
