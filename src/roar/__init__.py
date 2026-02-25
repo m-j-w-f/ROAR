@@ -5,24 +5,35 @@ DATA_DIR = ROOT_DIR / "data_cleaned"
 EXTRAS_DIR = ROOT_DIR / "data_extras"
 
 ALL_VEHICLES = [
-    "01 VW ID4",
-    "02 Audi Q8",
-    "03 Porsche Taycan",
-    "04 VW eGolf",
+    "ID.4",
+    "Q8 e-tron",
+    "Taycan",
+    "E-Golf",
 ]
 
-VEHICLE_CLEAN_NAMES = {
-    "e-Golf": "04 VW eGolf",
-    "E-Golf": "04 VW eGolf",
-    "VW eGolf": "04 VW eGolf",
-    "ID4": "01 VW ID4",
-    "VW ID4": "01 VW ID4",
-    "Q8 e-tron": "02 Audi Q8",
-    "AudiQ8": "02 Audi Q8",
-    "Porsche": "03 Porsche Taycan",
+VEHICLE_COLORS = {
+    "ID.4": "#3498db",  # Blue
+    "Q8 e-tron": "#e74c3c",  # Red
+    "Taycan": "#2ecc71",  # Green
+    "E-Golf": "#9b59b6",  # Purple
 }
 
-ID_TO_VEHICLE = {i + 1: vehicle for i, vehicle in enumerate(ALL_VEHICLES)}
+VEHICLE_CLEAN_NAMES = {
+    "ID4": "ID.4",
+    "VW ID4": "ID.4",
+    "Q8 e-tron": "Q8 e-tron",
+    "Q8": "Q8 e-tron",
+    "AudiQ8": "Q8 e-tron",
+    "Porsche": "Taycan",
+    "Taycan": "Taycan",
+    "e-Golf": "E-Golf",
+    "eGolf": "E-Golf",
+    "E-Golf": "E-Golf",
+    "VW eGolf": "E-Golf",
+}
+
+ID_TO_VEHICLE = {i: vehicle for i, vehicle in enumerate(ALL_VEHICLES)}
+VEHICLE_TO_ID = {vehicle: i for i, vehicle in enumerate(ALL_VEHICLES)}
 
 ALL_TYRES = [
     "EcoContact 6 Q",
@@ -33,8 +44,98 @@ ALL_TYRES = [
     "Summer SRTT",
 ]
 
+TYRE_TO_ID = {
+    "EcoContact 6 Q": 1,
+    "RainSport 5": 3,
+    "PremiumContact 6 AO": 6,
+    "P-Zero R": 10,
+    "Ventus S1 evo 3 ev": 12,
+    "Summer SRTT": 13,
+}
+ID_TO_TYRE = {i: tyre for tyre, i in TYRE_TO_ID.items()}
+
+TYRE_COLORS = {
+    1: "#e63946",
+    3: "#f4a261",
+    6: "#e9c46a",
+    10: "#2a9d8f",
+    12: "#264653",
+    13: "#7209b7",
+}
+
 TYRE_CLEAN_NAMES = {
     "PremiumContact 6": "PremiumContact 6 AO",
     "Ventus S1 Evo 3": "Ventus S1 evo 3 ev",
     "P-Zero": "P-Zero R",
 }
+
+# TODO: track 259 is actually also track 211 (?)
+ALL_TRACKS = [150, 211]
+
+TRACK_COLORS = {
+    150: "#4A90E2",
+    211: "#df4ed8",
+    259: "#F5A623",
+}
+
+MEASUREMENTS = [f"meas{i}" for i in range(1, 7)]
+# A note on measurements:
+# meas0: 43-57.6 km/h
+# meas1: 40 km/h
+# meas2: 75 km/h but also some speeds at 45 km/h
+# meas3: 57 km/h - 100 km/h (mostly 100)
+# meas4: 45 km/h, accel 1 m/s2
+# meas5: 45 km/h, accel 2 m/s2
+# meas6: 45 km/h, accel 3-4 m/s2
+# vr45: constant 45 km/h
+# vr50: same as vr50_b35 (maybe file parsing issue)
+# vr80: constant 80 km/h
+# vr100: constant 100 km/h
+# vr50_b35: accel from 45 km/h to 55 km/h with 1 m/s2
+# vr50_b50: accel from 45 km/h to 60 km/h with 2 m/s2
+# vr50_b70: accel from 50 km/h to 60 km/h with 3-4 m/s2
+
+MEASUREMENTS_CLEAN_NAMES = {
+    "meas0": "meas1",
+    "vr45": "meas1",
+    "vr50": "meas1",
+    "vr80": "meas2",
+    "vr100": "meas3",
+    "vr50_b35": "meas4",
+    "vr50_b50": "meas5",
+    "vr50_b70": "meas6",
+}
+
+MIC_CHANNELS = [
+    "Ch_1_labV12",
+    "Ch_2_labV12",
+    "Ch_3_labV12",
+    "Ch_4_labV12",
+    "NAWSSound",
+    "mic_iso",
+    "mic_2m",
+]
+
+MIC_CHANNELS_CLEANED = [mic_channel + "_cleaned" for mic_channel in MIC_CHANNELS]
+
+__all__ = [
+    "ROOT_DIR",
+    "DATA_DIR",
+    "EXTRAS_DIR",
+    "ALL_VEHICLES",
+    "VEHICLE_COLORS",
+    "VEHICLE_CLEAN_NAMES",
+    "ID_TO_VEHICLE",
+    "VEHICLE_TO_ID",
+    "ALL_TYRES",
+    "TYRE_TO_ID",
+    "ID_TO_TYRE",
+    "TYRE_COLORS",
+    "TYRE_CLEAN_NAMES",
+    "ALL_TRACKS",
+    "TRACK_COLORS",
+    "MEASUREMENTS",
+    "MEASUREMENTS_CLEAN_NAMES",
+    "MIC_CHANNELS",
+    "MIC_CHANNELS_CLEANED",
+]

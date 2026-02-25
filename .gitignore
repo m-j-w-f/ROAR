@@ -10,7 +10,10 @@
 .DS_Store
 
 # data files
-data_cleaned/
+*.xlsx
+*.h5
+data_images/
+tb_logs/
 related_papers/
 
 # Byte-compiled / optimized / DLL files
