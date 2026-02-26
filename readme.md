@@ -42,7 +42,7 @@ ROAR/
       load_data.py                      HDF5 file discovery, filename parsing, channel loading
       features.py                       Feature extraction (time-domain, spectral, MFCCs, vehicle-invariant)
       fix_channel_names.py              Channel name harmonization across vehicles
-    notenbooks/
+    notebooks/
       00file_naming.ipynb               File renaming and dataset construction
       01explore.ipynb                   Exploratory data analysis
       02analyze.ipynb                   Signal analysis and data cleaning
